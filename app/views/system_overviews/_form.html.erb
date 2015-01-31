@@ -1,0 +1,65 @@
+<%= form_for(@system_overview) do |f| %>
+  <% if @system_overview.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@system_overview.errors.count, "error") %> prohibited this system_overview from being saved:</h2>
+
+      <ul>
+      <% @system_overview.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lifetime_generation %><br>
+    <%= f.text_field :lifetime_generation %>
+  </div>
+  <div class="field">
+    <%= f.label :currently_running %><br>
+    <%= f.text_field :currently_running %>
+  </div>
+  <div class="field">
+    <%= f.label :last_connection_to_website %><br>
+    <%= f.time_select :last_connection_to_website %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_microconverters_online %><br>
+    <%= f.number_field :number_of_microconverters_online %>
+  </div>
+  <div class="field">
+    <%= f.label :number_of_microconverters %><br>
+    <%= f.number_field :number_of_microconverters %>
+  </div>
+  <div class="field">
+    <%= f.label :current_software_version %><br>
+    <%= f.text_field :current_software_version %>
+  </div>
+  <div class="field">
+    <%= f.label :software_build_date %><br>
+    <%= f.time_select :software_build_date %>
+  </div>
+  <div class="field">
+    <%= f.label :database_size %><br>
+    <%= f.text_field :database_size %>
+  </div>
+  <div class="field">
+    <%= f.label :current_timezone %><br>
+    <%= f.text_field :current_timezone %>
+  </div>
+  <div class="field">
+    <%= f.label :envoy_ip_address %><br>
+    <%= f.text_field :envoy_ip_address %>
+  </div>
+  <div class="field">
+    <%= f.label :envoy_mac_address %><br>
+    <%= f.text_field :envoy_mac_address %>
+  </div>
+  <div class="field">
+    <%= f.label :envoy_power_line_device %><br>
+    <%= f.text_field :envoy_power_line_device %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lifetime_generation: 1.5
+  currently_running: 1.5
+  last_connection_to_website: 2015-01-31 10:41:24
+  number_of_microconverters_online: 1
+  number_of_microconverters: 1
+  current_software_version: MyString
+  software_build_date: 2015-01-31 10:41:24
+  database_size: MyString
+  current_timezone: MyString
+  envoy_ip_address: MyString
+  envoy_mac_address: MyString
+  envoy_power_line_device: MyString
+
+two:
+  lifetime_generation: 1.5
+  currently_running: 1.5
+  last_connection_to_website: 2015-01-31 10:41:24
+  number_of_microconverters_online: 1
+  number_of_microconverters: 1
+  current_software_version: MyString
+  software_build_date: 2015-01-31 10:41:24
+  database_size: MyString
+  current_timezone: MyString
+  envoy_ip_address: MyString
+  envoy_mac_address: MyString
+  envoy_power_line_device: MyString
