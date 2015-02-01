@@ -1,9 +1,9 @@
 class CreateSystemOverviews < ActiveRecord::Migration
   def change
     create_table :system_overviews do |t|
-      t.float :lifetime_generation
-      t.float :currently_running
-      t.time :last_connection_to_website
+      t.string :lifetime_generation
+      t.string :currently_running
+      t.string :last_connection_to_website
       t.integer :number_of_microconverters_online
       t.integer :number_of_microconverters
       t.string :current_software_version

@@ -1,48 +1,90 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing System Overviews</h1>
+<div class="center"><h1>Listing System Overviews</h1></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">Export</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li><a href="">Nav item</a></li>
+                <li><a href="">Nav item again</a></li>
+                <li><a href="">One more nav</a></li>
+                <li><a href="">Another nav item</a></li>
+                <li><a href="">More navigation</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li><a href="">Nav item again</a></li>
+                <li><a href="">One more nav</a></li>
+                <li><a href="">Another nav item</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            
+            <div class="row placeholders">
+                
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <center>
+                        <div id='chart'>
+                            <%= render_chart @chart, 'chart' %>
+                        </div>
+                    </center>
+                    <h4>Currently running</h4>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <h4>Label</h4>
+                    <span class="text-muted">Something else</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <h4>Label</h4>
+                    <span class="text-muted">Something else</span>
+                </div>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+                    <h4>Label</h4>
+                    <span class="text-muted">Something else</span>
+                </div>
+            </div>
+            <%= link_to 'New System overview', new_system_overview_path %>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Lifetime generation</th>
+                        <th>Currently running</th>
+                        <th>Number of microconverters</th>
+                        <th>Date</th>
+                        <th colspan="3"></th>
+                    </tr>
+                    </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Lifetime generation</th>
-      <th>Currently running</th>
-      <th>Last connection to website</th>
-      <th>Number of microconverters online</th>
-      <th>Number of microconverters</th>
-      <th>Current software version</th>
-      <th>Software build date</th>
-      <th>Database size</th>
-      <th>Current timezone</th>
-      <th>Envoy ip address</th>
-      <th>Envoy mac address</th>
-      <th>Envoy power line device</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+                    <tbody>
+                    <% @system_overviews.each do |system_overview| %>
+                        <tr>
+                            <td><%= system_overview.lifetime_generation %>  </td>
+                            <td><%= system_overview.currently_running %></td>
+                            <td><%= system_overview.number_of_microconverters %></td>
+                            <td><%= system_overview.created_at %></td>
+                            <td><%= link_to 'Show', system_overview %></td>
+                            <td><%= link_to 'Edit', edit_system_overview_path(system_overview) %></td>
+                            <td><%= link_to 'Destroy', system_overview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                    <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-  <tbody>
-    <% @system_overviews.each do |system_overview| %>
-      <tr>
-        <td><%= system_overview.lifetime_generation %></td>
-        <td><%= system_overview.currently_running %></td>
-        <td><%= system_overview.last_connection_to_website %></td>
-        <td><%= system_overview.number_of_microconverters_online %></td>
-        <td><%= system_overview.number_of_microconverters %></td>
-        <td><%= system_overview.current_software_version %></td>
-        <td><%= system_overview.software_build_date %></td>
-        <td><%= system_overview.database_size %></td>
-        <td><%= system_overview.current_timezone %></td>
-        <td><%= system_overview.envoy_ip_address %></td>
-        <td><%= system_overview.envoy_mac_address %></td>
-        <td><%= system_overview.envoy_power_line_device %></td>
-        <td><%= link_to 'Show', system_overview %></td>
-        <td><%= link_to 'Edit', edit_system_overview_path(system_overview) %></td>
-        <td><%= link_to 'Destroy', system_overview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+
 
 <br>
 

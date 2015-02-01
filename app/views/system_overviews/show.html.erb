@@ -1,64 +1,65 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Lifetime generation:</strong>
-  <%= @system_overview.lifetime_generation %>
-</p>
-
-<p>
-  <strong>Currently running:</strong>
-  <%= @system_overview.currently_running %>
-</p>
-
-<p>
-  <strong>Last connection to website:</strong>
-  <%= @system_overview.last_connection_to_website %>
-</p>
-
-<p>
-  <strong>Number of microconverters online:</strong>
-  <%= @system_overview.number_of_microconverters_online %>
-</p>
-
-<p>
-  <strong>Number of microconverters:</strong>
-  <%= @system_overview.number_of_microconverters %>
-</p>
-
-<p>
-  <strong>Current software version:</strong>
-  <%= @system_overview.current_software_version %>
-</p>
-
-<p>
-  <strong>Software build date:</strong>
-  <%= @system_overview.software_build_date %>
-</p>
-
-<p>
-  <strong>Database size:</strong>
-  <%= @system_overview.database_size %>
-</p>
-
-<p>
-  <strong>Current timezone:</strong>
-  <%= @system_overview.current_timezone %>
-</p>
-
-<p>
-  <strong>Envoy ip address:</strong>
-  <%= @system_overview.envoy_ip_address %>
-</p>
-
-<p>
-  <strong>Envoy mac address:</strong>
-  <%= @system_overview.envoy_mac_address %>
-</p>
-
-<p>
-  <strong>Envoy power line device:</strong>
-  <%= @system_overview.envoy_power_line_device %>
-</p>
-
+<div class="center">
+    <p>
+      <strong>Lifetime generation:</strong>
+      <%= @system_overview.lifetime_generation %>
+    </p>
+    
+    <p>
+      <strong>Currently running:</strong>
+      <%= @system_overview.currently_running %>
+    </p>
+    
+    <p>
+      <strong>Last connection to website:</strong>
+      <%= @system_overview.last_connection_to_website %>
+    </p>
+    
+    <p>
+      <strong>Number of microconverters online:</strong>
+      <%= @system_overview.number_of_microconverters_online %>
+    </p>
+    
+    <p>
+      <strong>Number of microconverters:</strong>
+      <%= @system_overview.number_of_microconverters %>
+    </p>
+    
+    <p>
+      <strong>Current software version:</strong>
+      <%= @system_overview.current_software_version %>
+    </p>
+    
+    <p>
+      <strong>Software build date:</strong>
+      <%= @system_overview.software_build_date %>
+    </p>
+    
+    <p>
+      <strong>Database size:</strong>
+      <%= @system_overview.database_size %>
+    </p>
+    
+    <p>
+      <strong>Current timezone:</strong>
+      <%= @system_overview.current_timezone %>
+    </p>
+    
+    <p>
+      <strong>Envoy ip address:</strong>
+      <%= @system_overview.envoy_ip_address %>
+    </p>
+    
+    <p>
+      <strong>Envoy mac address:</strong>
+      <%= @system_overview.envoy_mac_address %>
+    </p>
+    
+    <p>
+      <strong>Envoy power line device:</strong>
+      <%= @system_overview.envoy_power_line_device %>
+    </p>
+    
+</div>
 <%= link_to 'Edit', edit_system_overview_path(@system_overview) %> |
 <%= link_to 'Back', system_overviews_path %>

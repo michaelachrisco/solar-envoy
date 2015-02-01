@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+gem 'mysql2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -18,6 +19,9 @@ gem 'unicorn'
 gem 'puma'
 gem 'nokogiri'
 gem 'bootstrap-sass', '~> 3.3.3'
+gem 'figaro'
+gem 'google_visualr'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -31,4 +35,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in background.
   gem 'spring'
 end
-

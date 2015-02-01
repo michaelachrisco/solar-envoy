@@ -14,20 +14,20 @@
 ActiveRecord::Schema.define(version: 20150131184124) do
 
   create_table "system_overviews", force: :cascade do |t|
-    t.float    "lifetime_generation"
-    t.float    "currently_running"
-    t.time     "last_connection_to_website"
-    t.integer  "number_of_microconverters_online"
-    t.integer  "number_of_microconverters"
-    t.string   "current_software_version"
+    t.string   "lifetime_generation",              limit: 255
+    t.string   "currently_running",                limit: 255
+    t.string   "last_connection_to_website",       limit: 255
+    t.integer  "number_of_microconverters_online", limit: 4
+    t.integer  "number_of_microconverters",        limit: 4
+    t.string   "current_software_version",         limit: 255
     t.time     "software_build_date"
-    t.string   "database_size"
-    t.string   "current_timezone"
-    t.string   "envoy_ip_address"
-    t.string   "envoy_mac_address"
-    t.string   "envoy_power_line_device"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "database_size",                    limit: 255
+    t.string   "current_timezone",                 limit: 255
+    t.string   "envoy_ip_address",                 limit: 255
+    t.string   "envoy_mac_address",                limit: 255
+    t.string   "envoy_power_line_device",          limit: 255
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
 end
