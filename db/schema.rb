@@ -11,23 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131184124) do
-
-  create_table "system_overviews", force: :cascade do |t|
-    t.string   "lifetime_generation",              limit: 255
-    t.string   "currently_running",                limit: 255
-    t.string   "last_connection_to_website",       limit: 255
-    t.integer  "number_of_microconverters_online", limit: 4
-    t.integer  "number_of_microconverters",        limit: 4
-    t.string   "current_software_version",         limit: 255
-    t.time     "software_build_date"
-    t.string   "database_size",                    limit: 255
-    t.string   "current_timezone",                 limit: 255
-    t.string   "envoy_ip_address",                 limit: 255
-    t.string   "envoy_mac_address",                limit: 255
-    t.string   "envoy_power_line_device",          limit: 255
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+ActiveRecord::Schema.define(version: 20_150_131_184_124) do
+  create_table 'system_overviews', force: :cascade do |t|
+    t.string 'lifetime_generation',             limit: 255
+    t.string 'currently_running',               limit: 255
+    t.string 'last_connection_to_website',      limit: 255
+    t.integer 'number_of_microinverters_online', limit: 4
+    t.integer 'number_of_microinverters',        limit: 4
+    t.string 'current_software_version',        limit: 255
+    t.time 'software_build_date'
+    t.string 'database_size',                   limit: 255
+    t.string 'current_timezone',                limit: 255
+    t.string 'envoy_ip_address',                limit: 255
+    t.string 'envoy_mac_address',               limit: 255
+    t.string 'envoy_power_line_device',         limit: 255
+    t.datetime 'created_at',                                  null: false
+    t.datetime 'updated_at',                                  null: false
   end
-
 end
