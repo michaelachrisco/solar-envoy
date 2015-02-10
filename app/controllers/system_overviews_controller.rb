@@ -5,21 +5,22 @@ class SystemOverviewsController < ApplicationController
   # GET /system_overviews.json
   def index
     @system_overviews = SystemOverview.all
-    
-    data_table = GoogleVisualr::DataTable.new
-    data_table.new_column('string'  , 'Label')
-    data_table.new_column('number'  , 'Value')
-    data_table.add_rows(3)
-    data_table.set_cell(0, 0, 'Current' )
-    data_table.set_cell(0, 1, SystemOverview
-                                  .last.currently_running
-                                  .tr('W','')
-                                  .tr('KW','')
-                                  .to_i
-    )
-    opts   = { :width => 400, :height => 120, :redFrom => 90, :redTo => 100, :yellowFrom => 75, :yellowTo => 90, :minorTicks => 5 }
-    @chart = GoogleVisualr::Interactive::Gauge.new(data_table, opts)
+    if @system_overviews.size > 0
 
+      data_table = GoogleVisualr::DataTable.new
+      data_table.new_column('string', 'Label')
+      data_table.new_column('number', 'Value')
+      data_table.add_rows(3)
+      data_table.set_cell(0, 0, 'Current')
+      data_table.set_cell(0, 1, SystemOverview
+                                    .last.currently_running
+                                    .tr('W', '')
+                                    .tr('KW', '')
+                                    .to_i
+      )
+      opts   = { width: 400, height: 120, redFrom: 90, redTo: 100, yellowFrom: 75, yellowTo: 90, minorTicks: 5 }
+      @chart = GoogleVisualr::Interactive::Gauge.new(data_table, opts)
+    end
   end
 
   # GET /system_overviews/1
@@ -31,7 +32,7 @@ class SystemOverviewsController < ApplicationController
   def new
     @system_overview = SystemOverview.new
     @system_overview.populate_data
-    
+
     respond_to do |format|
       if @system_overview.save
         format.html { redirect_to system_overviews_path, notice: 'System overview was successfully created.' }
@@ -86,15 +87,16 @@ class SystemOverviewsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_system_overview
-      @system_overview = SystemOverview.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def system_overview_params
-      params.require(:system_overview).permit(:lifetime_generation, :currently_running, :last_connection_to_website, :number_of_microconverters_online, :number_of_microconverters, :current_software_version, :software_build_date, :database_size, :current_timezone, :envoy_ip_address, :envoy_mac_address, :envoy_power_line_device)
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_system_overview
+    @system_overview = SystemOverview.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def system_overview_params
+    params.require(:system_overview).permit(:lifetime_generation, :currently_running, :last_connection_to_website, :number_of_microconverters_online, :number_of_microconverters, :current_software_version, :software_build_date, :database_size, :current_timezone, :envoy_ip_address, :envoy_mac_address, :envoy_power_line_device)
+  end
 end

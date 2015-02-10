@@ -4,8 +4,8 @@ class CreateSystemOverviews < ActiveRecord::Migration
       t.string :lifetime_generation
       t.string :currently_running
       t.string :last_connection_to_website
-      t.integer :number_of_microconverters_online
-      t.integer :number_of_microconverters
+      t.integer :number_of_microinverters_online
+      t.integer :number_of_microinverters
       t.string :current_software_version
       t.time :software_build_date
       t.string :database_size
