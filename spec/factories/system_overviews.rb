@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :system_overview do
     lifetime_generation '100 Kwh'
-    currently_running { Faker::Number.number(2).to_s + ' Mwh' }
+    currently_running { Faker::Number.number(2).to_s }
     last_connection_to_website { Faker::Number.digit.to_s + ' minutes' }
     number_of_microinverters_online { Faker::Number.number(2) }
     number_of_microinverters { Faker::Number.number(2) }

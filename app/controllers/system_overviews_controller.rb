@@ -5,6 +5,14 @@ class SystemOverviewsController < ApplicationController
   # GET /system_overviews.json
   def index
     @system_overviews = SystemOverview.all
+    select_overviews = SystemOverview.select('currently_running')
+    puts select_overviews.to_json
+    @json_overviews = select_overviews.values
+    @arr = []
+    select_overviews.each do |x|
+      @arr.push(x[:currently_running].to_f)
+    end
+    
     if @system_overviews.size > 0
 
       data_table = GoogleVisualr::DataTable.new
@@ -18,7 +26,7 @@ class SystemOverviewsController < ApplicationController
                                     .tr('KW', '')
                                     .to_i
       )
-      opts   = { width: 400, height: 120, redFrom: 90, redTo: 100, yellowFrom: 75, yellowTo: 90, minorTicks: 5 }
+      opts   = { width: 400, height: 120, redFrom: 9, redTo: 10, yellowFrom: 7.5, yellowTo: 9, minorTicks: 5 }
       @chart = GoogleVisualr::Interactive::Gauge.new(data_table, opts)
     end
   end

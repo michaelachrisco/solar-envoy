@@ -4,12 +4,13 @@ require 'time'
 
 class SystemOverview < ActiveRecord::Base
   def populate_data
+    #TODO: CONVERT lifetime_generation and currently_running into W only.
     # @doc = Nokogiri::HTML(open('/Users/michaelchrisco/solar/website/home.html'))
     @doc = Nokogiri::HTML(open(Figaro.env.home_url))
-    # self.lifetime_generation = @doc.xpath('//td')[13].content.tr('MWh','').tr(' ','').to_f
-    # self.currently_running  = @doc.xpath('//td')[15].content.tr('Kw','').tr(' ','').to_f
-    self.lifetime_generation = @doc.xpath('//td')[13].content
-    self.currently_running  = @doc.xpath('//td')[15].content
+    self.lifetime_generation = @doc.xpath('//td')[13].content.tr('MWh','').tr(' ','').to_f
+    self.currently_running  = @doc.xpath('//td')[15].content.tr('Kw','').tr(' ','').to_f
+    # self.lifetime_generation = @doc.xpath('//td')[13].content
+    # self.currently_running  = @doc.xpath('//td')[15].content
     self.last_connection_to_website = @doc.xpath('//td')[17].content
     self.number_of_microinverters = @doc.xpath('//td')[19].content.to_i
     self.number_of_microinverters_online = @doc.xpath('//td')[21].content.to_i

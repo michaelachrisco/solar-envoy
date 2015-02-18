@@ -40,6 +40,7 @@
     <orderEntry type="library" scope="PROVIDED" name="debugger-linecache (v1.2.0, RVM: ruby-2.1.5 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, RVM: ruby-2.1.5 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.2.2, RVM: ruby-2.1.5 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="faker (v1.4.3, RVM: ruby-2.1.5 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="figaro (v1.1.0, RVM: ruby-2.1.5 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.3.0, RVM: ruby-2.1.5 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="google_visualr (v2.4.0, RVM: ruby-2.1.5 [global]) [gem]" level="application" />
