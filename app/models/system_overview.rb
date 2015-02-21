@@ -5,10 +5,11 @@ require 'time'
 class SystemOverview < ActiveRecord::Base
   def populate_data
     #TODO: CONVERT lifetime_generation and currently_running into W only.
-    # @doc = Nokogiri::HTML(open('/Users/michaelchrisco/solar/website/home.html'))
     @doc = Nokogiri::HTML(open(Figaro.env.home_url))
-    self.lifetime_generation = @doc.xpath('//td')[13].content.tr('MWh','').tr(' ','').to_f
-    self.currently_running  = @doc.xpath('//td')[15].content.tr('Kw','').tr(' ','').to_f
+    self.lifetime_generation = convert_power(@doc.xpath('//td')[13].content)
+    self.currently_running  = convert_power(@doc.xpath('//td')[15].content)
+    # self.lifetime_generation = @doc.xpath('//td')[13].content.tr('MWh','').tr(' ','').to_f
+    # self.currently_running  = @doc.xpath('//td')[15].content.tr('Kw','').tr(' ','').to_f
     # self.lifetime_generation = @doc.xpath('//td')[13].content
     # self.currently_running  = @doc.xpath('//td')[15].content
     self.last_connection_to_website = @doc.xpath('//td')[17].content
@@ -30,5 +31,16 @@ class SystemOverview < ActiveRecord::Base
       puts 'td[' + @num.to_s + "]: #{link.content}"
       @num += 1
     end
+  end
+  
+  def convert_power(power)
+    if power.include? 'MWh' || 'Mw'
+      power.tr('MWh','').tr(' ','').to_f * 1000000
+    elsif power.include? 'kWh' || 'kW'
+      power.tr('MWh','').tr(' ','').to_f * 1000
+    else
+      power
+    end
+    
   end
 end
