@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/michaelchrisco/dev/development/solar-envoy","disabled":false},"v-csc-1":{"id":"v-csc-1","guestpath":"/tmp/vagrant-chef/8ded69129b5e3ca1c68057a567cabcfa/cookbooks","hostpath":"/Users/michaelchrisco/dev/development/solar-envoy/cookbooks","disabled":false}}}
